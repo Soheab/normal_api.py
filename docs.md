@@ -275,11 +275,7 @@ Here is explained what attributes the returned objects have
 
 ## Image
 
-The object returned from `alex_api.achievement()`, `alex_api.amiajoke()`, `alex_api.bad()`, `alex_api.calling()`,
-`alex_api.captcha()`, `alex_api.challenge()`, `alex_api.colour_image()`, `alex_api.colour_image_gradient()`,
-`alex_api.colourify()`, `alex_api.didyoumean()`, `alex_api.drake()`, `alex_api.facts()`, `alex_api.filter()`,
-`alex_api.floor()`, `alex_api.jokeoverhead()`, `alex_api.pornhub()`, `alex_api.shame()`, `alex_api.salty()`,
-`alex_api.scroll()`, `alex_api.ship()`, `alex_api.supreme()`, `alex_api.trash()`, `alex_api.what()`
+The object returned from `normal_api_client.image_search()`, `normal_api_client.imgur().image`, `normal_api_client.random_emoji().image`
 
 #### Image.url
 
@@ -747,45 +743,24 @@ Same as RandomEmoji.name will be returned
 ---
 
 [str]: https://docs.python.org/3/library/stdtypes.html#str
-
 [int]: https://docs.python.org/3/library/functions.html#int
-
 [dict]: https://docs.python.org/3/library/stdtypes.html#dict
-
 [bool]: https://docs.python.org/3/library/functions.html#bool
-
 [tuple]: https://docs.python.org/3/library/stdtypes.html#tuple
-
 [Image]: docs.md#image
-
 [User]: docs.md#user
-
 [Pastebin]: docs.md#pastebin
-
 [Imgur]: docs.md#imgur
-
-[User.Activity]: docs.md#useractivity
-
+[User.Activity]: docs.md#useractivity-1
 [Invite]: docs.md#invite
-
-[Invite.Inviter]: docs.md#inviteinviter
-
-[Invite.Guild]: docs.md#inviteguild
-
-[Invite.Channel]: docs.md#invitechannel
-
+[Invite.Inviter]: docs.md#inviteinviter-1
+[Invite.Guild]: docs.md#inviteguild-1
+[Invite.Channel]: docs.md#invitechannel-1
 [Template]: docs.md#invite
-
-[Template.Creator]: docs.md#templatecreator
-
-[Template.Guild]: docs.md#templateguild
-
+[Template.Creator]: docs.md#templatecreator-1
+[Template.Guild]: docs.md#templateguild-1
 [Emojified]: docs.md#emojified
-
 [ParsedMS]: docs.md#parsedms
-
 [Translated]: docs.md#translated
-
 [YoutubeVideo]: docs.md#youtubevideo
-
 [RandomEmoji]: docs.md#randomemoji
