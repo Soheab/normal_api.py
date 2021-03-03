@@ -1,4 +1,4 @@
-from .classes import Colour, Filters, Image, MinecraftIcons
+from .classes import *
 from .client import BadRequest, Client, InternalServerError, NotFound
 from .errors import BadRequest, HTTPException, InternalServerError, NotFound
 

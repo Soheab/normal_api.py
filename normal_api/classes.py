@@ -1,13 +1,10 @@
-from enum import Enum
 from io import BytesIO
 from typing import Union, Optional
 
-import typing
-
-from aiohttp import ClientResponse, ClientSession
+from aiohttp import ClientResponse
 
 
-def UNDEFINED_OR_NULL(text: Union[str, int], integer = False):
+def _UNDEFINED_OR_NULL(text: Union[str, int], integer = False):
     if str(text) in ["undefined", "null"]:
         return None
 
@@ -62,7 +59,7 @@ class User:
         self.username: str = data.get("username")
         self.discriminator: int = int(data.get("discrim"))
         self.id: int = int(data.get("id"))
-        self.status: Optional[str] = UNDEFINED_OR_NULL(data.get("user_status", None))
+        self.status: Optional[str] = _UNDEFINED_OR_NULL(data.get("user_status", None))
         self.activity: User.Activity = User.Activity(data.get(data))
 
     def __str__(self):
@@ -73,9 +70,9 @@ class User:
 
     class Activity:
         def __init__(self, data: dict) -> None:
-            self.type: Optional[str] = UNDEFINED_OR_NULL(data.get("status_type"))
-            self.text: Optional[str] = UNDEFINED_OR_NULL(data.get("custom_status"))
-            self.emoji: Optional[str] = UNDEFINED_OR_NULL(data.get("custom_status_emoji"))
+            self.type: Optional[str] = _UNDEFINED_OR_NULL(data.get("status_type"))
+            self.text: Optional[str] = _UNDEFINED_OR_NULL(data.get("custom_status"))
+            self.emoji: Optional[str] = _UNDEFINED_OR_NULL(data.get("custom_status_emoji"))
 
         def __str__(self):
             return str(self.type) if self.type else ''
@@ -112,12 +109,12 @@ class Invite:
         def __init__(self, data: dict) -> None:
             self._data: dict = data
             self.name: str = data.get("guild_name")
-            self.members: Optional[int] = UNDEFINED_OR_NULL(data.get("guild_members"), True)
+            self.members: Optional[int] = _UNDEFINED_OR_NULL(data.get("guild_members"), True)
             self.id: int = int(data.get("guild_id"))
-            self.description: Optional[str] = UNDEFINED_OR_NULL(data.get("guild_description"))
+            self.description: Optional[str] = _UNDEFINED_OR_NULL(data.get("guild_description"))
 
         def features(self) -> Optional[list]:
-            features_string = UNDEFINED_OR_NULL(self._data.get("guild_features"))
+            features_string = _UNDEFINED_OR_NULL(self._data.get("guild_features"))
             if features_string:
                 return features_string.strip().split(",")
             return features_string
@@ -146,19 +143,19 @@ class Template:
         self._data: dict = data
         self.code: str = data.get("code")
         self.url: str = data.get("url")
-        self.description: str = UNDEFINED_OR_NULL(data.get("description"))
+        self.description: str = _UNDEFINED_OR_NULL(data.get("description"))
         self.usage_count: int = int(data.get("usage_count"))
         self.creator: Template.Creator = Template.Creator(self._data)
         self.guild: Template.Guild = Template.Guild(self._data)
 
     def roles(self) -> Optional[list]:
-        roles_string = UNDEFINED_OR_NULL(self._data.get("roles"))
+        roles_string = _UNDEFINED_OR_NULL(self._data.get("roles"))
         if roles_string:
             return roles_string.strip().split(",")
         return roles_string
 
     def channels(self) -> Optional[list]:
-        channels_string = UNDEFINED_OR_NULL(self._data.get("channels"))
+        channels_string = _UNDEFINED_OR_NULL(self._data.get("channels"))
         if channels_string:
             return channels_string.strip().split(",")
         return channels_string

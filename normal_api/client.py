@@ -119,8 +119,9 @@ class Client:
         return RandomEmoji(image_response, params)
 
     async def has_voted_on_topgg(self, bot_id: int, user_id: int, top_gg_token: str) -> bool:
-        response = await self._api_request("topgg/hasvoted", {"bot": int(bot_id), "user": int(user_id),
-                                                              "token": str(top_gg_token)})
+        response = await self._api_request("topgg/hasvoted", {
+            "bot": int(bot_id), "user": int(user_id),
+            "token": str(top_gg_token)})
         has_voted = response['voted']
         return True if str(has_voted) == "true" else False
 

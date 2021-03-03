@@ -4,7 +4,7 @@
 [![PyPi Version](https://img.shields.io/pypi/v/normal_api.py.svg)](https://pypi.python.org/pypi/normal_api.py/)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
-# CI_API.py
+# Normal_API.py
 
 An Easy-To-Use Wrapper for the Normal API
 
@@ -32,17 +32,24 @@ See the full and detailed [docs here][docs]
 
 ## Made by
 
-This wrapper is made by **Soheab_#6240** (150665783268212746), DM me on Discord or join my discord server [here][discord_mine] for anything related to
-this wrapper.
+This wrapper is made by **Soheab_#6240** (150665783268212746), DM me on Discord or join my discord
+server [here][discord_mine] for anything related to this wrapper.
 
 Join Normal API's discord server [here][discord_api] to suggest or report anything on the API.
 
 
 [docs]: https://github.com/Soheab/normal_api.py/blob/main/docs.md
+
 [changelog]: https://github.com/Soheab/normal_api.py/blob/main/changelog.md
+
 [examples]: https://github.com/Soheab/normal_api.py/blob/main/docs.md#examples
+
 [base_url]: https://normal-api.ml/
+
 [github]: https://github.com/Soheab/normal_api.py
+
 [pypi]: https://pypi.org/project/normal_api.py/
+
 [discord_api]: https://discord.gg/FyQ3CnmnQK
+
 [discord_mine]: https://discord.gg/yCzcfju
