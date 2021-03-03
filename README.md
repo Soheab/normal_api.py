@@ -37,11 +37,11 @@ this wrapper.
 
 Join Normal API's discord server [here][discord_api] to suggest or report anything on the API.
 
-[docs]: https://github.com/Soheab/ci_api.py/blob/master/docs.md
-[changelog]: https://github.com/Soheab/ci_api.py/blob/master/changelog.md
-[examples]: https://github.com/Soheab/ci_api.py/blob/master/docs.md#examples
-[embed_example]: https://github.com/Soheab/ci_api.py/blob/master/docs.md#embed
-[base_url]: https://api.cool-img-api.ml/
+
+[docs]: https://github.com/Soheab/normal_api.py/blob/main/docs.md
+[changelog]: https://github.com/Soheab/normal_api.py/blob/main/changelog.md
+[examples]: https://github.com/Soheab/normal_api.py/blob/main/docs.md#examples
+[base_url]: https://normal-api.ml/
 [github]: https://github.com/Soheab/normal_api.py
 [pypi]: https://pypi.org/project/normal_api.py/
 [discord_api]: https://discord.gg/FyQ3CnmnQK

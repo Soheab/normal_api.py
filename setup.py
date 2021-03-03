@@ -43,7 +43,7 @@ setup(
     ],
     project_urls = {
         "Discord": "https://discord.gg/FyQ3CnmnQK",
-        "Documentation": f"https://github.com/Soheab/{__NAME__}.py/blob/master/docs.md",
+        "Documentation": f"https://github.com/Soheab/{__NAME__}.py/blob/main/docs.md",
     },
     python_requires = ">=3.6",
 )
