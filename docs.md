@@ -24,14 +24,14 @@ For future reference in this documentation: when referring to 'normal_api_client
 
 All available endpoints you can use.
 
-### await normal_api_client.pastebin(text, privacy)
+### await normal_api_client.pastebin(text, *, privacy = "public")
 
 Create a public or unlisted pastebin.
 
 #### Parameters
 
 - text ([str]) - Text for the pastebin.
-- privacy ([str]) - Privacy value for the pastebin, this can only be "public" or "unlisted".
+- privacy (Optional[[str]]) - Privacy value for the pastebin, this can only be "public" or "unlisted". Defaults to public.
 
 #### Returns
 
@@ -39,7 +39,7 @@ Create a public or unlisted pastebin.
 
 ---
 
-### await normal_api_client.imgur(url, title = None)
+### await normal_api_client.imgur(url, *, title = None)
 
 Upload an image to Imgur.
 
@@ -70,7 +70,7 @@ https://en.wikipedia.org/wiki/Ordinal_numeral
 
 ### await normal_api_client.user_status(user_id)
 
-Get anyone's custom status and more.
+Get anyone's status and more.
 
 #### Parameters
 
@@ -138,7 +138,7 @@ Parse milliseconds into days,hours, minutes, seconds, milliseconds, microseconds
 
 --- 
 
-### await normal_api_client.translate(text, to_language)
+### await normal_api_client.translate(text, *, to_language)
 
 Translate text to x language.
 
@@ -237,7 +237,7 @@ Search for an image related to your text.
 
 ---
 
-### await normal_api_client.random_emoji(category = None, nsfw = False)
+### await normal_api_client.random_emoji(category = None, *, nsfw = False)
 
 Get a random emoji from discordemoji.com.
 
@@ -262,6 +262,7 @@ Check if user_id has voted on bot_id on top.gg with the bot's token.
 - user_id ([int]) - User ID to check for
 - top_gg_token ([str]) - Top.gg bot token from here:
   https://top.gg/bot/BOT_ID_HERE/webhooks#:~:text=Token%20for%20this%20bot%3A&text=Show%20token
+  the token is sent directly to the top.gg API.
 
 #### Returns
 
@@ -275,7 +276,8 @@ Here is explained what attributes the returned objects have
 
 ## Image
 
-The object returned from `normal_api_client.image_search()`, `normal_api_client.imgur().image`, `normal_api_client.random_emoji().image`
+The object returned from `normal_api_client.image_search()`, `normal_api_client.imgur().image`
+, `normal_api_client.random_emoji().image`
 
 #### Image.url
 
@@ -742,6 +744,55 @@ Same as RandomEmoji.name will be returned
 
 ---
 
+# Examples
+
+##### [invite] info using [discord.py](https://github.com/Rapptz/discord.py):
+
+```python
+import discord
+import normal_api
+from discord.ext import commands
+
+bot = commands.Bot(command_prefix="example.")
+normal_api_yes = normal_api.Client() # just a example, the client doesn't have to be under bot
+
+@bot.command()
+async def inviteinfo(ctx, code: str): 
+    invinfo = await normal_api_yes.invite_info(code)
+    my_embed = discord.Embed(
+      title = "Invite Info",
+      description = f"[Join Server]({invinfo.url})"
+    )
+    my_embed.add_field(
+      name = "Inviter",
+      value = f"""
+      **Full Name**: {str(invinfo.inviter)}
+      **ID**: {invinfo.inviter.id}
+      """
+    )
+    my_embed.add_field(
+      name = "Channel",
+      value = f"""
+      **Full Name**: {invinfo.channel.name}
+      **ID**: {invinfo.channel.id}
+      """
+    )
+    my_embed.add_field(
+      name = "Server",
+      value = f"""
+      **Full Name**: {invinfo.guild.name}
+      **ID**: {invinfo.guild.id}
+      **Features**: {', '.join(invinfo.guild.features) if invinfo.guild.features else 'None'}
+      **Total Members**: {invinfo.guild.members}
+      """
+    )
+    await ctx.send(embed=my_embed)
+    
+# invoke: example.inviteinfo yCzcfju
+
+bot.run("TOKEN")
+```
+
 [str]: https://docs.python.org/3/library/stdtypes.html#str
 [int]: https://docs.python.org/3/library/functions.html#int
 [dict]: https://docs.python.org/3/library/stdtypes.html#dict
@@ -764,3 +815,4 @@ Same as RandomEmoji.name will be returned
 [Translated]: docs.md#translated
 [YoutubeVideo]: docs.md#youtubevideo
 [RandomEmoji]: docs.md#randomemoji
+[invite]: docs.md#await-normal_api_clientinvite_infocode
