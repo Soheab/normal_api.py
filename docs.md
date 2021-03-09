@@ -31,7 +31,8 @@ Create a public or unlisted pastebin.
 #### Parameters
 
 - text ([str]) - Text for the pastebin.
-- privacy (Optional[[str]]) - Privacy value for the pastebin, this can only be "public" or "unlisted". Defaults to public.
+- privacy (Optional[[str]]) - Privacy value for the pastebin, this can only be "public" or "unlisted". Defaults to
+  public.
 
 #### Returns
 
@@ -753,66 +754,90 @@ import discord
 import normal_api
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix="example.")
-normal_api_yes = normal_api.Client() # just a example, the client doesn't have to be under bot
+bot = commands.Bot(command_prefix = "example.")
+normal_api_yes = normal_api.Client()  # just a example, the client doesn't have to be under bot
+
 
 @bot.command()
-async def inviteinfo(ctx, code: str): 
+async def inviteinfo(ctx, code: str):
     invinfo = await normal_api_yes.invite_info(code)
     my_embed = discord.Embed(
-      title = "Invite Info",
-      description = f"[Join Server]({invinfo.url})"
+        title = "Invite Info",
+        description = f"[Join Server]({invinfo.url})"
     )
     my_embed.add_field(
-      name = "Inviter",
-      value = f"""
+        name = "Inviter",
+        value = f"""
       **Full Name**: {str(invinfo.inviter)}
       **ID**: {invinfo.inviter.id}
       """
     )
     my_embed.add_field(
-      name = "Channel",
-      value = f"""
+        name = "Channel",
+        value = f"""
       **Full Name**: {invinfo.channel.name}
       **ID**: {invinfo.channel.id}
       """
     )
     my_embed.add_field(
-      name = "Server",
-      value = f"""
+        name = "Server",
+        value = f"""
       **Full Name**: {invinfo.guild.name}
       **ID**: {invinfo.guild.id}
       **Features**: {', '.join(invinfo.guild.features) if invinfo.guild.features else 'None'}
       **Total Members**: {invinfo.guild.members}
       """
     )
-    await ctx.send(embed=my_embed)
-    
+    await ctx.send(embed = my_embed)
+
+
 # invoke: example.inviteinfo yCzcfju
 
 bot.run("TOKEN")
 ```
 
 [str]: https://docs.python.org/3/library/stdtypes.html#str
+
 [int]: https://docs.python.org/3/library/functions.html#int
+
 [dict]: https://docs.python.org/3/library/stdtypes.html#dict
+
 [bool]: https://docs.python.org/3/library/functions.html#bool
+
 [tuple]: https://docs.python.org/3/library/stdtypes.html#tuple
+
 [Image]: docs.md#image
+
 [User]: docs.md#user
+
 [Pastebin]: docs.md#pastebin
+
 [Imgur]: docs.md#imgur
+
 [User.Activity]: docs.md#useractivity-1
+
 [Invite]: docs.md#invite
+
 [Invite.Inviter]: docs.md#inviteinviter-1
+
 [Invite.Guild]: docs.md#inviteguild-1
+
 [Invite.Channel]: docs.md#invitechannel-1
+
 [Template]: docs.md#invite
+
 [Template.Creator]: docs.md#templatecreator-1
+
 [Template.Guild]: docs.md#templateguild-1
+
 [Emojified]: docs.md#emojified
+
 [ParsedMS]: docs.md#parsedms
+
 [Translated]: docs.md#translated
+
 [YoutubeVideo]: docs.md#youtubevideo
+
 [RandomEmoji]: docs.md#randomemoji
+
 [invite]: docs.md#await-normal_api_clientinvite_infocode

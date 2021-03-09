@@ -1,5 +1,3 @@
-import asyncio
-
 import aiohttp
 
 
@@ -23,6 +21,3 @@ class HTTPSession:
         if self.session is not None and not self.session.closed:
             await self.session.close()
             self.session = None
-
-
-
